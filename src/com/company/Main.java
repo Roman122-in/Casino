@@ -1,36 +1,37 @@
 
 package com.company;
 
-
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        ConsRealisationClass consRealisationClass = new ConsRealisationClass();
+        consRealisationClass.GreetingMethod();
 
         try {
+            GenerateRandomRealisation generateRandomRealisation = new GenerateRandomRealisation();
+            ArrayList<ArrayList<Integer>> finalList = generateRandomRealisation.CreateFinalArrayList();
 
-            ConsRealisationClass consRealisationClass = new ConsRealisationClass();
-            consRealisationClass.GreetingMethod();
+            OutputRealisation outputRealisation = new OutputRealisation();
+            outputRealisation.print(finalList);
 
-                GenerateRandomRealisation generateRandomRealisation = new GenerateRandomRealisation();
-                ArrayList<ArrayList<Integer>> finalList = generateRandomRealisation.CreateFinalArrayList();
+            WinAlgoritmRealisationClass winAlgoritmRealisationClass = new WinAlgoritmRealisationClass();
+            boolean result = winAlgoritmRealisationClass.methodTrue(finalList);
+            System.out.println(result);
 
-                OutputRealisation outputRealisation = new OutputRealisation();
-                outputRealisation.print(finalList);
+            if (!result) {
+                int newBalance = consRealisationClass.SaveBalance() - consRealisationClass.SaveBalance();
+                consRealisationClass.NewBalanceUpdated(newBalance);
+                System.out.println("Your balance " + newBalance);
+            } else {
+                int newBalance = consRealisationClass.SaveBalance() * 2;
+                System.out.println("Win: " + newBalance);
+            }
 
-                WinAlgoritmRealisationClass winAlgoritmRealisationClass = new WinAlgoritmRealisationClass();
-                boolean result = winAlgoritmRealisationClass.methodTrue(finalList);
-                System.out.println(result);
-
-                if (!result) {
-                    int newBalance = consRealisationClass.SaveBalance() - 100;
-                    consRealisationClass.NewBalanceUpdated(newBalance);
-                    System.out.println("Your balance" + newBalance);
-                } else {
-                    int newBalance = consRealisationClass.SaveBalance() +100;
-                    System.out.println("Win: "+newBalance);
-                }
 
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
@@ -38,3 +39,4 @@ public class Main {
 
     }
 }
+

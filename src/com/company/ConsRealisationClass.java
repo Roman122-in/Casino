@@ -13,14 +13,14 @@ public class ConsRealisationClass implements ConsRealisation {
         int inputed = scanner.nextInt();
 
 
-        if(inputed<100||inputed> 1000){
+
+        if(inputed<100||inputed> 1000000){
             throw new IllegalArgumentException("Try again");
         }
 
 
-        this.balance = inputed;
-        System.out.println("your balance: "+balance);
-        scanner.close();
+       this.balance = inputed;
+
     }
 
 
