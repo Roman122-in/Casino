@@ -7,5 +7,5 @@ Your balance: 300
 [6, 2, 8]
 
 Result: WIN!
-New balance: 500
+New balance: 600
 
